@@ -1,0 +1,14 @@
+venv/
+.env
+
+config.json
+*/config.json
+*/*.md
+
+__pycache__/
+venv/
+.pytest_cache/
+*.pyc
+
+*.whl
+flatpak-pip-generator.py
