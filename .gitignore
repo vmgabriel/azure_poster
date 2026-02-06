@@ -12,3 +12,5 @@ venv/
 
 *.whl
 flatpak-pip-generator.py
+
+.idea/
