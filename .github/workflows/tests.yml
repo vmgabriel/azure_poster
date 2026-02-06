@@ -10,19 +10,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/flathub/flatpak-github-actions:gnome-45
+      image: quay.io/gnome/sdk:45
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install Test Dependencies
         run: |
-          # Instalamos pytest dentro del contenedor de Flatpak
-          pip3 install pytest requests-mock
+          pip3 install pytest requests-mock requests markdown
 
       - name: Run Pytest
         env:
           G_MESSAGES_DEBUG: all
+          PYTHONPATH: ${{ github.workspace }}/src
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
           pytest tests/
