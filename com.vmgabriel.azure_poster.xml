@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.vmgabriel.azure_poster</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Azure Docs Creator</name>
+  <summary>Generador de documentación para Azure DevOps</summary>
+  <description>
+    <p>Una herramienta profesional para gestionar comentarios y documentación en Pull Requests de Azure.</p>
+  </description>
+  <launchable type="desktop-id">com.vmgabriel.azure_poster.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Ventana principal de la aplicación</caption>
+      <image>https://raw.githubusercontent.com/vmgabriel/azure_poster/main/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+</component>

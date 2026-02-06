@@ -1,0 +1,45 @@
+id: com.vmgabriel.azure_poster
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
+command: azure-docs
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=home
+modules:
+  - name: build-tools-fix
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app \
+          packaging-24.2-py3-none-any.whl \
+          hatchling-1.28.0-py3-none-any.whl \
+          pathspec-0.12.1-py3-none-any.whl \
+          pluggy-1.5.0-py3-none-any.whl \
+          trove_classifiers-2024.10.16-py3-none-any.whl
+    sources:
+      - type: file
+        path: packaging-24.2-py3-none-any.whl
+      - type: file
+        path: hatchling-1.28.0-py3-none-any.whl
+      - type: file
+        path: pathspec-0.12.1-py3-none-any.whl
+      - type: file
+        path: pluggy-1.5.0-py3-none-any.whl
+      - type: file
+        path: trove_classifiers-2024.10.16-py3-none-any.whl
+
+  - python3-modules.json
+
+  - name: azure-docs-creator
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app --no-build-isolation --no-deps .
+      - install -Dm644 com.vmgabriel.azure_poster.desktop /app/share/applications/com.vmgabriel.azure_poster.desktop
+      - install -Dm644 icon/com.vmgabriel.azure_poster.png /app/share/icons/hicolor/256x256/apps/com.vmgabriel.azure_poster.png
+    sources:
+      - type: dir
+        path: .

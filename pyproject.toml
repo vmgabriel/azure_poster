@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "azure-docs-creator"
+version = "0.1.0"
+description = "Herramienta para automatizar comentarios en Azure DevOps"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Gabriel Vargas" },
+]
+dependencies = [
+    "certifi>=2026.1.4",
+    "charset-normalizer>=3.4.4",
+    "idna>=3.11",
+    "Markdown>=3.10.1",
+    "pycairo>=1.29.0",
+    "PyGObject>=3.54.5",
+    "requests>=2.32.5",
+    "urllib3>=2.6.3",
+]
+
+[project.scripts]
+azure-docs = "src.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest",
+    "pytest-mock",
+]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest tests/"
+azure-docs = "python3 src/main.py"

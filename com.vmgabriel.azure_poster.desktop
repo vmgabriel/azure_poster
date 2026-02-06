@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Azure Docs Creator
+Comment=Generador de documentación y comentarios para Azure DevOps
+# Este es el comando que definiste en tu YAML
+Exec=azure-docs
+# El icono debe llamarse igual al ID de la app
+Icon=com.vmgabriel.azure_poster
+Terminal=false
+Categories=Development;Office;GTK;
+Keywords=azure;devops;docs;markdown;
+StartupNotify=true
+# Esto ayuda a GNOME a agrupar las ventanas correctamente
+StartupWMClass=azure-docs
