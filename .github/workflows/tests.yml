@@ -1,0 +1,28 @@
+name: CI Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub/flatpak-github-actions:gnome-45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          # Instalamos pytest dentro del contenedor de Flatpak
+          pip3 install pytest requests-mock
+
+      - name: Run Pytest
+        env:
+          G_MESSAGES_DEBUG: all
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
+          pytest tests/
